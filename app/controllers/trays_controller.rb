@@ -5,7 +5,7 @@ class TraysController < ApplicationController
   # GET /trays
   # GET /trays.json
   def index
-    @trays = Tray.all
+    @trays = current_user.trays
   end
 
   # GET /trays/1
@@ -15,7 +15,7 @@ class TraysController < ApplicationController
 
   # GET /trays/new
   def new
-    @tray = Tray.new
+    @tray = current_user.trays.build
   end
 
   # GET /trays/1/edit
@@ -25,7 +25,7 @@ class TraysController < ApplicationController
   # POST /trays
   # POST /trays.json
   def create
-    @tray = Tray.create(tray_params)
+    @tray = current_user.trays.build(tray_params)
 
     if @tray.save
       redirect_to trays_path
@@ -66,6 +66,6 @@ class TraysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tray_params
-      params.require(:tray).permit(:title, :notes, :category_id, images_files: [])
+      params.require(:tray).permit(:title, :notes, :category_id, :user_id, images_files: [])
     end
 end

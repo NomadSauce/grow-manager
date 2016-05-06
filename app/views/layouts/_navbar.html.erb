@@ -9,12 +9,15 @@
       </button>
 
       <%= link_to 'HOME', root_path, class: 'navbar-brand waves-effect waves-light' %>
+
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
       <ul class="nav navbar-nav">
-        <li class="active"><%= link_to 'TRAYS', trays_path %><span class="sr-only">(current)</span></li>
-        <li class="active"><%= link_to 'PLANTS', plants_path %><span class="sr-only">(current)</span></li>
+        <% if user_signed_in? %>
+            <li class="active"><%= link_to 'TRAYS', trays_path %><span class="sr-only">(current)</span></li>
+            <li class="active"><%= link_to 'PLANTS', plants_path %><span class="sr-only">(current)</span></li>
+        <% end %>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">

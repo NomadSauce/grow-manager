@@ -1,10 +1,11 @@
 class GrowsController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_grow, only: [:show, :edit, :update, :destroy]
 
   # GET /grows
   # GET /grows.json
   def index
-    @grows = Grow.all
+    @grows = current_user.grows
   end
 
   # GET /grows/1
@@ -14,7 +15,7 @@ class GrowsController < ApplicationController
 
   # GET /grows/new
   def new
-    @grow = Grow.new
+    @grow = current_user.grows.build
   end
 
   # GET /grows/1/edit
@@ -24,7 +25,7 @@ class GrowsController < ApplicationController
   # POST /grows
   # POST /grows.json
   def create
-    @grow = Grow.new(grow_params)
+    @grow = current_user.grows.build(grow_params)
 
     respond_to do |format|
       if @grow.save
@@ -74,6 +75,6 @@ class GrowsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def grow_params
-      params.require(:grow).permit(:title, :notes, :category_id)
+      params.require(:grow).permit(:title, :notes, :category_id, :user_id)
     end
 end

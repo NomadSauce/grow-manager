@@ -1,6 +1,8 @@
 class Grow < ActiveRecord::Base
   belongs_to :category
 
+  belongs_to :user
+
   after_create do
     Category.create(name: self.title)
   end

@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="jumbotron">
+      <h2>GROW ROOMS</h2>
+      <h5>NUMBER OF ROOMS: <%= @grows.length %></h5>
+      <div class="row">
+          <div class="header">
+            <%= link_to 'ADD GROW', new_grow_path, class: "btn btn-raised btn-success hoverable" %>
+            <%= link_to 'BACK', root_path, class: "btn btn-raised btn-default hoverable" %>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <% @grows.each do |grow| %>
+        <div class="col-lg-4">
+
+          <div class="well">
+
+
+            <div class="panel panel-default">
+
+                <div class="panel-heading">
+                  <h3><%= grow.title.upcase %></h3>
+                </div>
+
+
+              <div class="panel-body">
+                <%= grow.notes %>
+              </div>
+
+            <div class="panel-footer">
+              <%= link_to 'VIEW', grow, class: "btn btn-raised btn-success hoverable" %>
+             <%= link_to 'DELETE', grow, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-raised btn-default hoverable" %>
+            </div>
+
+            </div>
+          </div>
+
+        </div>
+
+    <% end %>
+  </div>
+
+</div>
+
+
+

@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="jumbotron">
+      <h2><%= @tray.title.upcase %></h2>
+      <p><%= @tray.notes.upcase %></p>
+
+      <%= link_to 'ADD PLANT', new_plant_path(tray_id: @tray.id), class: "btn btn-raised btn-warning hoverable" %>
+      <%= link_to 'EDIT', edit_tray_path(@tray), class: "btn btn-raised btn-info hoverable" %>
+      <%= link_to 'BACK', trays_path, class: "btn btn-raised hoverable" %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8">
+    <div class="jumbotron">
+      <%= render 'datalogs/form' %>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <h2>TASKS</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+      <% @tray.plants.each do |plant| %>
+          <div class="col-md-3">
+            <div class="card hoverable">
+              <div class="card-height-indicator"></div>
+              <div class="card-content">
+                <div class="card-image" style="background-color: #66bb6a">
+                  <%= attachment_image_tag(plant.images.first, :file, :fill, 200, 200) %>
+                  <h3 class="card-image-headline">
+                    <%= link_to plant.title.upcase, plant_path(plant.id) %></h3>
+                </div>
+                <div class="card-body">
+                  <%= plant.notes.upcase %>
+                  <%= plant.id %>
+                  <h4>Planted <%= time_ago_in_words(plant.created_at) %> ago.</h4>
+                </div>
+              </div>
+              <div class="card-footer">
+                <%= link_to 'VIEW', plant_path(plant.id), class: "btn btn-raised btn-success hoverable" %>
+                <%= link_to 'DELETE', plant, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-raised btn-default hoverable" %>
+              </div>
+            </div>
+          </div>
+      <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="jumbotron">
+      <% @tray.images.each do |i| %>
+          <%= attachment_image_tag(i, :file, :fill, 150, 150, format: "jpg") %>
+      <% end %>
+    </div>
+
+  </div>
+</div>
+

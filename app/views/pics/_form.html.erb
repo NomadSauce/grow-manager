@@ -1,0 +1,25 @@
+<%= render "shared/errors", obj: @pic %>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="jumbotron">
+      <%= form_for(@pic, html: {class: 'form-horizontal'}) do |f| %>
+          <% if @pic.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@pic.errors.count, "error") %> prohibited this grow from being saved:</h2>
+                <ul>
+                  <% @pic.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+          <% end %>
+          <%= f.label 'NAME' %>
+          <%= f.text_field :title, class: 'form-control', id: 'focusedInput1' %></br>
+          <%= f.label :description %>
+          <%= f.text_field :description, rows: 10, cols: 10, class: 'form-control' %><br>
+          <%= f.submit class: 'btn btn-raised hoverable btn-success' %>
+          <%= link_to 'CANCEL', pics_path, class: 'btn btn-raised hoverable btn-info' %>
+      <% end %>
+    </div>
+  </div>
+</div>

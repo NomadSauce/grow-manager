@@ -1,0 +1,28 @@
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+
+    <div class="jumbotron">
+      <%= form_for(@grow, html: {class: 'form-horizontal'}) do |f| %>
+          <% if @grow.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@grow.errors.count, "error") %> prohibited this grow from being saved:</h2>
+
+                <ul>
+                  <% @grow.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+          <% end %>
+          <%= f.label :title %>
+          <%= f.text_field :title, class: 'form-control', id: 'focusedInput1', placeholder: 'ENTER TITLE' %>
+          <%= f.label :notes %>
+          <%= f.text_area :notes, rows: 10, cols: 10, class: 'form-control', placeholder: 'NOTES' %>
+          <%= f.submit class: 'btn btn-raised hoverable btn-success' %>
+          <%= link_to 'CANCEL', grows_path, class: 'btn btn-raised hoverable btn-info'  %>
+      <% end %>
+    </div>
+
+  </div>
+</div>

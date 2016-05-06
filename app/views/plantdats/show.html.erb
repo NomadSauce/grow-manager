@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ambtemp:</strong>
+  <%= @plantdat.ambtemp %>
+</p>
+
+<p>
+  <strong>Foltempcur:</strong>
+  <%= @plantdat.foltempcur %>
+</p>
+
+<p>
+  <strong>Foltempmin:</strong>
+  <%= @plantdat.foltempmin %>
+</p>
+
+<p>
+  <strong>Foltempmax:</strong>
+  <%= @plantdat.foltempmax %>
+</p>
+
+<p>
+  <strong>Ph:</strong>
+  <%= @plantdat.ph %>
+</p>
+
+<p>
+  <strong>Heatmat:</strong>
+  <%= @plantdat.heatmat %>
+</p>
+
+<p>
+  <strong>Tds:</strong>
+  <%= @plantdat.tds %>
+</p>
+
+<p>
+  <strong>H202:</strong>
+  <%= @plantdat.h202 %>
+</p>
+
+<p>
+  <strong>Plant:</strong>
+  <%= @plantdat.plant %>
+</p>
+
+<%= link_to 'Edit', edit_plantdat_path(@plantdat) %> |
+<%= link_to 'Back', plantdats_path %>

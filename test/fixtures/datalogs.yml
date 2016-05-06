@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tray_id: 
+  ambcur: 1.5
+  ambmin: 1.5
+  ambmax: 1.5
+  folcur: 1.5
+  folmin: 1.5
+  folmax: 1.5
+  ph: 1.5
+  heatmat: 1.5
+  h202: 1.5
+  tds: 1.5
+
+two:
+  tray_id: 
+  ambcur: 1.5
+  ambmin: 1.5
+  ambmax: 1.5
+  folcur: 1.5
+  folmin: 1.5
+  folmax: 1.5
+  ph: 1.5
+  heatmat: 1.5
+  h202: 1.5
+  tds: 1.5

@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Datalogs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ambcur</th>
+      <th>Ambmin</th>
+      <th>Ambmax</th>
+      <th>Folcur</th>
+      <th>Folmin</th>
+      <th>Folmax</th>
+      <th>Ph</th>
+      <th>Heatman</th>
+      <th>H202</th>
+      <th>Tds</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @datalogs.each do |datalog| %>
+      <tr>
+        <td><%= datalog.ambcur %></td>
+        <td><%= datalog.ambmin %></td>
+        <td><%= datalog.ambmax %></td>
+        <td><%= datalog.folcur %></td>
+        <td><%= datalog.folmin %></td>
+        <td><%= datalog.folmax %></td>
+        <td><%= datalog.ph %></td>
+        <td><%= datalog.heatman %></td>
+        <td><%= datalog.h202 %></td>
+        <td><%= datalog.tds %></td>
+        <td><%= link_to 'Show', tray_datalogs_path(@tray, datalog) %></td>
+        <td><%= link_to 'Edit', edit_tray_datalog_path(@tray, datalog.id) %></td>
+        <td><%= link_to 'Destroy', tray_datalog_path(@tray, datalog.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

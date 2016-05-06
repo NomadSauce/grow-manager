@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="jumbotron">
+      <h2><%= @grow.title.upcase %></h2>
+      <p><%= @grow.notes.upcase %></p>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="header">
+      <%= link_to 'ADD TRAY', new_tray_path, class: "btn btn-raised btn-success hoverable" %>
+      <%= link_to 'EDIT', edit_grow_path(@grow), class: "btn btn-raised btn-info hoverable" %>
+      <%= link_to 'BACK', grows_path, class: "btn btn-raised hoverable" %>
+    </div>
+  </div>
+</div>
+
+

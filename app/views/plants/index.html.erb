@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-12">
+    <div class="jumbotron">
+      <h2><%= controller_name.upcase %></h2>
+      <h5>NUMBER OF PLANTS: <%= @plants.length %></h5>
+      <div class="row">
+        <div class="header">
+          <%= link_to 'ADD PLANT', new_plant_path, class: "btn btn-raised btn-success hoverable" %>
+          <%= link_to 'BACK', root_path, class: "btn btn-raised btn-default hoverable" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-12">
+
+      <% @plants.each do |plant| %>
+          <div class="col-md-3">
+            <div class="card hoverable">
+              <div class="card-height-indicator"></div>
+              <div class="card-content">
+                <div class="card-image">
+                  <%= link_to attachment_image_tag(plant.images.first, :file, :fill, 200, 200), plant_path(plant.id) %>
+                  <h3 class="card-image-headline"><%= plant.title.upcase %></h3>
+                </div>
+                <div class="card-body">
+                  <%= plant.notes %>
+                  <%= plant.id %>
+
+                  <%= Tray.find(plant.tray_id).title %>
+                  <h5>Planted <%= time_ago_in_words(plant.created_at) %> ago.</h5>
+                </div>
+              </div>
+                <div class="card-footer">
+                  <%= link_to 'VIEW', plant, class: "btn btn-raised btn-success hoverable" %>
+                  <%= link_to 'Edit', edit_plant_path(plant), class: "btn btn-raised btn-info hoverable" %>
+                  <%= link_to 'DELETE', plant, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-raised btn-default hoverable" %>
+                </div>
+            </div>
+          </div>
+      <% end %>
+  </div>
+
+</div>
+
+

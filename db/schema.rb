@@ -11,13 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160506024029) do
+ActiveRecord::Schema.define(version: 20160506045606) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "datalogs", force: :cascade do |t|
+    t.integer  "tray_id"
+    t.float    "ambcur"
+    t.float    "ambmin"
+    t.float    "ambmax"
+    t.float    "folcur"
+    t.float    "folmin"
+    t.float    "folmax"
+    t.float    "ph"
+    t.float    "heatmat"
+    t.float    "h202"
+    t.float    "tds"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "datalogs", ["tray_id"], name: "index_datalogs_on_tray_id"
 
   create_table "grows", force: :cascade do |t|
     t.string   "title"
@@ -26,6 +44,16 @@ ActiveRecord::Schema.define(version: 20160506024029) do
     t.datetime "updated_at",  null: false
     t.integer  "category_id"
   end
+
+  create_table "images", force: :cascade do |t|
+    t.string   "file_id"
+    t.integer  "plant_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "tray_id"
+  end
+
+  add_index "images", ["plant_id"], name: "index_images_on_plant_id"
 
   create_table "pics", force: :cascade do |t|
     t.string   "title"
@@ -75,6 +103,17 @@ ActiveRecord::Schema.define(version: 20160506024029) do
   end
 
   add_index "species", ["plant_id"], name: "index_species_on_plant_id"
+
+  create_table "tasks", force: :cascade do |t|
+    t.integer  "plant_id"
+    t.integer  "tray_id"
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "tasks", ["plant_id"], name: "index_tasks_on_plant_id"
+  add_index "tasks", ["tray_id"], name: "index_tasks_on_tray_id"
 
   create_table "trays", force: :cascade do |t|
     t.string   "title"

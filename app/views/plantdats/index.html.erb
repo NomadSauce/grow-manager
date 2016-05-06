@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Plantdats</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ambtemp</th>
+      <th>Foltempcur</th>
+      <th>Foltempmin</th>
+      <th>Foltempmax</th>
+      <th>Ph</th>
+      <th>Heatmat</th>
+      <th>Tds</th>
+      <th>H202</th>
+      <th>Plant</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @plantdats.each do |plantdat| %>
+      <tr>
+        <td><%= plantdat.ambtemp %></td>
+        <td><%= plantdat.foltempcur %></td>
+        <td><%= plantdat.foltempmin %></td>
+        <td><%= plantdat.foltempmax %></td>
+        <td><%= plantdat.ph %></td>
+        <td><%= plantdat.heatmat %></td>
+        <td><%= plantdat.tds %></td>
+        <td><%= plantdat.h202 %></td>
+        <td><%= plantdat.plant.title %></td>
+        <td><%= link_to 'Show', plant_plantdat_path(@plant, plantdat) %></td>
+        <td><%= link_to 'Edit', edit_plant_plantdat_path(@plant, plantdat.id) %></td>
+        <td><%= link_to 'Destroy', plant_plantdat_path(@plant, plantdat.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Plantdat', new_plantdat_path %>

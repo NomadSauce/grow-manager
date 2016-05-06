@@ -1,0 +1,23 @@
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="jumbotron">
+      <%= form_for(@tray) do |f| %>
+          <%= f.label :images_files %><br>
+          <%= f.attachment_field :images_files, multiple: true, direct: true, presigned: true %>
+          <%= f.label :title %>
+          <%= f.text_field :title, class: 'form-control', id: 'focusedInput1', placeholder: 'ENTER TITLE' %>
+          <%= f.label :notes %>
+          <%= f.text_area :notes, rows: 10, cols: 10, class: 'form-control', placeholder: 'NOTES' %>
+          <%= f.label 'SELECT GROW ROOM' %><br>
+          <%= f.collection_select(:category_id, Category.all, :id, :name) %>
+          <%= f.submit class: 'btn btn-raised hoverable btn-success' %>
+          <%= link_to 'CANCEL', trays_path, class: 'btn btn-raised hoverable btn-info' %>
+      <% end %>
+    </div>
+
+  </div>
+</div>
+
+
+

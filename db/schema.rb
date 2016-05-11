@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160506230543) do
+ActiveRecord::Schema.define(version: 20160511062018) do
+
+  create_table "appointments", force: :cascade do |t|
+    t.string   "task"
+    t.datetime "time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -19,6 +26,18 @@ ActiveRecord::Schema.define(version: 20160506230543) do
     t.datetime "updated_at", null: false
     t.integer  "user_id"
   end
+
+  create_table "cycles", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "completed_at"
+    t.boolean  "completed"
+    t.integer  "tray_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.datetime "due_date"
+  end
+
+  add_index "cycles", ["tray_id"], name: "index_cycles_on_tray_id"
 
   create_table "datalogs", force: :cascade do |t|
     t.integer  "tray_id"
@@ -69,6 +88,17 @@ ActiveRecord::Schema.define(version: 20160506230543) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "plant_cycles", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "interval"
+    t.integer  "frequency"
+    t.integer  "plant_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "plant_cycles", ["plant_id"], name: "index_plant_cycles_on_plant_id"
+
   create_table "plantdats", force: :cascade do |t|
     t.float    "ambtemp"
     t.float    "foltempcur"
@@ -117,6 +147,7 @@ ActiveRecord::Schema.define(version: 20160506230543) do
     t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "due_date"
   end
 
   add_index "tasks", ["plant_id"], name: "index_tasks_on_plant_id"

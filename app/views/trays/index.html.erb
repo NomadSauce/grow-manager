@@ -30,7 +30,25 @@
                     <h3 class="card-image-headline"><%= tray.title.upcase %></h3>
                   </div>
                   <div class="card-body">
-                    <%= tray.notes %>
+
+
+
+
+                    <% tray.plants.each do |plant| %>
+                        <% plant.tasks.each do |task| %>
+
+                            <% if (task.due_date - Time.now) < 24.hours %>
+                                <span class="label label-danger"><%= task.title.upcase %> <%= plant.title.upcase %></span>
+
+                            <% elsif (task.due_date - Time.now) < 48.hours %>
+                                <span class="label label-warning"><%= task.title.upcase %> <%= plant.title.upcase %></span>
+
+                            <% else %>
+                                <span class="label label-primary"><%= task.title.upcase %> <%= plant.title.upcase %></span>
+
+                            <% end %>
+                        <% end %>
+                    <% end %>
                   </div>
                 </div>
                 <div class="card-footer">

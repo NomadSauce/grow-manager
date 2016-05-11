@@ -26,8 +26,10 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
+
     @task = @plant.tasks.create(task_params)
     if @task.save
+
       redirect_to @plant
     end
   end
@@ -78,6 +80,6 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:title, :plant_id, :tray_id )
+      params.require(:task).permit(:title, :plant_id, :tray_id, :due_date )
     end
 end

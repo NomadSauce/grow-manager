@@ -1,9 +1,30 @@
 <div class="row">
   <div class="col-md-12">
-    <div class="alert alert-dismissible alert-success">
-      <strong><%= task.title %></strong>
-      <%= link_to '', plant_task_path(@plant, task.id), method: :delete, class: 'close glyphicon glyphicon-remove-sign pull-right' %>
-      <a href="javascript:void(0)" class="alert-link"></a>
-    </div>
+    <% if (task.due_date - Time.now) < 24.hours %>
+        <div class="alert alert-dismissible alert-danger">
+          <strong><%= task.title.upcase %></strong>
+          <strong>IN <%= distance_of_time_in_words_to_now(task.due_date).upcase %></strong>
+          <%= link_to '', plant_task_path(@plant, task.id), method: :delete, class: 'close glyphicon glyphicon-remove-sign pull-right' %>
+          <a href="javascript:void(0)" class="alert-link"></a>
+        </div>
+
+    <% elsif (task.due_date - Time.now) < 48.hours %>
+        <div class="alert alert-dismissible alert-warning">
+          <strong><%= task.title.upcase %></strong>
+          <strong>IN <%= distance_of_time_in_words_to_now(task.due_date).upcase %></strong>
+          <%= link_to '', plant_task_path(@plant, task.id), method: :delete, class: 'close glyphicon glyphicon-remove-sign pull-right' %>
+          <a href="javascript:void(0)" class="alert-link"></a>
+        </div>
+
+    <% else %>
+        <div class="alert alert-dismissible alert-success">
+          <strong><%= task.title.upcase %></strong>
+          <strong>IN <%= distance_of_time_in_words_to_now(task.due_date).upcase %></strong>
+          <%= link_to '', plant_task_path(@plant, task.id), method: :delete, class: 'close glyphicon glyphicon-remove-sign pull-right' %>
+          <a href="javascript:void(0)" class="alert-link"></a>
+        </div>
+
+    <% end %>
+
   </div>
 </div>

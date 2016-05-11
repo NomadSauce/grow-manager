@@ -6,4 +6,5 @@ class Tray < ActiveRecord::Base
   has_many :datalogs, dependent:  :destroy
   accepts_attachments_for :images, attachment: :file, append: true
 
+
 end

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @plant_plant_cycle.title %>
+</p>
+
+<p>
+  <strong>Interval:</strong>
+  <%= @plan_plant_cycle.interval %>
+</p>
+
+<p>
+  <strong>Frequency:</strong>
+  <%= @plant_plant_cycle.frequency %>
+</p>
+
+<p>
+  <strong>Plant:</strong>
+  <%= @plant_plant_cycle.plant %>
+</p>
+
+<%= link_to 'Edit', edit_plant_plant_cycle_path(@plant_cycle) %> |
+<%= link_to 'Back', plant_plant_cycles_path %>

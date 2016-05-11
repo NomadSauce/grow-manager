@@ -1,5 +1,8 @@
+
+
 Rails.application.routes.draw do
 
+  resources :appointments
   resources :pages
   resources :tasks
   resources :datalogs
@@ -23,6 +26,7 @@ Rails.application.routes.draw do
 
   resources :plants do
     resources :plantdats
+    resources :plant_cycles
     resources :tasks
   end
 
@@ -34,5 +38,8 @@ Rails.application.routes.draw do
   resources :categories
   resources :grows
   resources :pics
+
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
 
 end

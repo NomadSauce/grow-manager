@@ -21,6 +21,15 @@
   </div>
   <div class="col-md-4">
     <h2>TASKS</h2>
+    <% @tray.plants.each do |plant| %>
+        <% plant.tasks.each do |task| %>
+            <div class="alert alert-dismissible alert-success">
+              <%= link_to '', plant_task_path(plant, task.id), method: :delete, class: 'close glyphicon glyphicon-remove-sign pull-right' %>
+              <H5><%= plant.title.upcase %>: <%= task.title.upcase %></H5>
+              <a href="javascript:void(0)" class="alert-link"></a>
+            </div>
+        <% end %>
+    <% end %>
   </div>
 </div>
 
@@ -37,8 +46,22 @@
                     <%= link_to plant.title.upcase, plant_path(plant.id) %></h3>
                 </div>
                 <div class="card-body">
+                  <% plant.tasks.each do |task| %>
+
+                      <% if (task.due_date - Time.now) < 24.hours %>
+                          <span class="label label-danger"><%= task.title.upcase %></span>
+
+                      <% elsif (task.due_date - Time.now) < 48.hours %>
+                          <span class="label label-warning"><%= task.title.upcase %></span>
+
+                      <% else %>
+                          <span class="label label-primary"><%= task.title.upcase %></span>
+
+                      <% end %>
+
+                  <% end %>
+
                   <%= plant.notes.upcase %>
-                  <%= plant.id %>
                   <h4>Planted <%= time_ago_in_words(plant.created_at) %> ago.</h4>
                 </div>
               </div>

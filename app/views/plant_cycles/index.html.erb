@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Plant Cycles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Interval</th>
+      <th>Frequency</th>
+      <th>Plant</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @plant_cycles.each do |plant_cycle| %>
+      <tr>
+        <td><%= plant_cycle.title %></td>
+        <td><%= plant_cycle.interval %></td>
+        <td><%= plant_cycle.frequency %></td>
+        <td><%= plant_cycle.plant %></td>
+        <td><%= link_to 'Show', plant_plant_cycles_path %></td>
+        <td><%= link_to 'Edit', edit_plant_plant_cycle_path(@plant, plant_cycle) %></td>
+        <td><%= link_to 'Destroy', plant_plant_cycle_path(@plant, plant_cycle.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Plant cycle', new_plant_plant_cycle_path(@plant.id) %>

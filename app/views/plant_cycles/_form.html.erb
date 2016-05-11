@@ -1,0 +1,32 @@
+<%= render "shared/errors", obj: @plant %>
+<div class="row">
+  <div class="col-md-12">
+
+
+    <%= form_for([@plant, @plant.plant_cycles.build]) do |f| %>
+
+        <div class="col-md-12">
+          <div class="col-sm-10">
+            <%= f.text_field :title, class: 'form-control', id: 'focusedInput1', placeholder: '(CYCLE TITLE)' %>
+
+            <%= f.number_field :interval, class: 'form-control', id: 'focusedInput1', placeholder: '(INTERVAL)' %>
+
+            <%= f.number_field :frequency, class: 'form-control', id: 'focusedInput1', placeholder: '(FREQUENCY)' %>
+
+          </div>
+          <div class="col-md-1">
+
+            <%= button_tag(type: 'submit', class: "btn btn-success btn-circle btn-lg") do %>
+                <i class="icon-ok icon-white"></i> ADD
+
+            <% end %>
+          </div>
+
+
+
+
+
+        </div></br>
+    <% end %>
+  </div>
+</div>

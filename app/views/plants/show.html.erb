@@ -8,7 +8,6 @@
       <h4>TRAY: <%= Tray.find(@plant.tray_id).title.upcase %></h4>
       <p><%= @plant.notes.upcase %></p>
       <h4>Planted <%= time_ago_in_words(@plant.created_at) %> ago.</h4>
-
       <%= link_to 'Edit', edit_plant_path(@plant), class: "btn btn-raised btn-info hoverable" %>
       <%= link_to 'BACK', plants_path, class: "btn btn-raised hoverable" %>
     </div>
@@ -18,61 +17,41 @@
 
 <div class="row">
   <div class="col-md-12">
-    <div class="col-md-8">
+    <div class="col-md-6">
       <div class="jumbotron">
-        <h2>STATUS</h2>
-        <% if @plant.plantdats.length == 0 %>
+        <%= render 'tasks/form' %>
+        <%= render @plant.tasks.reject(&:new_record?) %>
+
+        <% if @plant.plantdats.length == 0  %>
             <div class="alert alert-dismissible alert-success">
               <H5>TODO: ADD YOUR DAILIES</H5>
               <a href="javascript:void(0)" class="alert-link"></a>
             </div>
             <%= render 'plantdats/form' %>
-        <% else %>
-            <% @plant.plantdats.each do |data| %>
 
-                <table class="table table-striped table-hover ">
-                  <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>CURRENT</th>
-                    <th>MIN TEMP</th>
-                    <th>MAX TEMP</th>
-                    <th><%= data.created_at.strftime('%c') %></th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <td>AMBIENT Temp</td>
-                    <td><%= data.ambtemp %></td>
-                    <td><%= data.ambtempmin %></td>
-                    <td><%= data.ambtembmax %></td>
-                  </tr>
-                  <tr>
-                    <td>FOLIAR Temp</td>
-                    <td><%= data.foltempcur %></td>
-                    <td><%= data.foltempmin %></td>
-                    <td><%= data.foltempmax %></td>
-                  </tr>
-                  <tr>
-                    <th>pH</th>
-                    <th>HEATMAT</th>
-                    <th>H2O2</th>
-                  </tr>
-                  <tr>
-                    <td><%= data.ph %></td>
-                    <td><%= data.heatmat %></td>
-                    <td><%= data.h202 %></td>
-                  </tr>
-                  </tbody>
-                </table>
+        <% else %>
+            <% if @plant.plantdats.last.created_at.day != Date.current.day %>
+                <div class="alert alert-dismissible alert-success">
+                  <H5>TODO: EAT YOUR WHEATIES</H5>
+                  <a href="javascript:void(0)" class="alert-link"></a>
+                </div>
+
+                <%= render 'plantdats/form' %>
             <% end %>
+
         <% end %>
 
       </div>
     </div>
-    <div class="col-md-4">
-        <%= render 'tasks/form' %>
-        <%= render @plant.tasks.reject(&:new_record?) %>
+    <div class="col-md-6">
+      <div class="jumbotron">
+        <p><%= pluralize(@plant.plant_cycles.count, "CYCLE").upcase %></p>
+        <%= render 'plant_cycles/form' %>
+        <%= render @plant.plant_cycles.reject(&:new_record?)  %>
+
+
+      </div>
+
     </div>
   </div>
 </div>

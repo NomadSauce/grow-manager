@@ -5,9 +5,9 @@
   <div class="col-md-12">
     <div class="jumbotron">
       <h2><%= @plant.title.upcase %></h2>
-      <h4>TRAY: <%= Tray.find(@plant.tray_id).title.upcase %></h4>
-      <p><%= @plant.notes.upcase %></p>
       <h4>Planted <%= time_ago_in_words(@plant.created_at) %> ago.</h4>
+      <p><%= @plant.notes.upcase %></p>
+      <%= render 'transplant' %>
       <%= link_to 'Edit', edit_plant_path(@plant), class: "btn btn-raised btn-info hoverable" %>
       <%= link_to 'BACK', plants_path, class: "btn btn-raised hoverable" %>
     </div>

@@ -2,14 +2,8 @@
 
 Rails.application.routes.draw do
 
-  resources :appointments
-  resources :pages
-  resources :tasks
-  resources :datalogs
+  resources :appointments, :pages, :species, :categories, :grows, :pics
   devise_for :users
-  resources :tasks
-  resources :plantdats
-  resources :species
 
   get 'signup', to: 'users#new'
   resources :users, except: [:new]
@@ -25,21 +19,20 @@ Rails.application.routes.draw do
   root 'pages#index'
 
   resources :plants do
-    resources :plantdats
-    resources :plant_cycles
-    resources :tasks
+    member do
+      post 'transplant'
+    end
+    resources :plantdats, :plant_cycles, :tasks
   end
 
   resources :trays do
-    resources :datalogs
-    resources :tasks
+    resources :datalogs, :tasks
   end
 
-  resources :categories
-  resources :grows
-  resources :pics
 
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
+
+
 
 end

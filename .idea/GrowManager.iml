@@ -173,6 +173,7 @@
     <orderEntry type="library" scope="PROVIDED" name="railties (v4.2.6, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rake (v11.1.2, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rdoc (v4.2.2, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="recurrence (v1.3.0, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="redis (v3.3.0, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="refile (v0.6.2@e844cc, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="refile-mini_magick (v0.2.0, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />

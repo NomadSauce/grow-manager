@@ -25,7 +25,10 @@ class PlantCyclesController < ApplicationController
   # POST /plant_cycles
   # POST /plant_cycles.json
   def create
+    options = {:every => :day}
+    r = Recurrence.new(options)
     @plant_cycle = @plant.plant_cycles.create(plant_cycle_params)
+
 
     respond_to do |format|
       if @plant_cycle.save

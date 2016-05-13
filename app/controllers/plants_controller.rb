@@ -1,5 +1,5 @@
 class PlantsController < ApplicationController
-  before_action :set_plant, only: [:show, :edit, :update, :destroy]
+  before_action :set_plant, only: [:show, :edit, :update, :destroy, :transplant]
 
 
   # GET /plants
@@ -52,6 +52,14 @@ class PlantsController < ApplicationController
         format.html { render :edit }
         format.json { render json: @plant.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def transplant
+
+    if @plant.update(plant_params)
+      redirect_to @plant
+      flash[:success] = "Transplanted successfully"
     end
   end
 

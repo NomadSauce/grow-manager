@@ -1,0 +1,49 @@
+<%= form_for(@nutrient_calc) do |f| %>
+  <% if @nutrient_calc.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@nutrient_calc.errors.count, "error") %> prohibited this nutrient_calc from being saved:</h2>
+
+      <ul>
+      <% @nutrient_calc.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :product %><br>
+    <%= f.text_field :product %>
+  </div>
+  <div class="field">
+    <%= f.label :vegtime %><br>
+    <%= f.number_field :vegtime %>
+  </div>
+  <div class="field">
+    <%= f.label :flowertime %><br>
+    <%= f.number_field :flowertime %>
+  </div>
+  <div class="field">
+    <%= f.label :rezsize %><br>
+    <%= f.text_field :rezsize %>
+  </div>
+  <div class="field">
+    <%= f.label :rezunits %><br>
+    <%= f.text_field :rezunits %>
+  </div>
+  <div class="field">
+    <%= f.label :aerstone %><br>
+    <%= f.check_box :aerstone %>
+  </div>
+  <div class="field">
+    <%= f.label :outputunits %><br>
+    <%= f.text_field :outputunits %>
+  </div>
+  <div class="field">
+    <%= f.label :nutrient_id %><br>
+    <%= f.text_field :nutrient_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

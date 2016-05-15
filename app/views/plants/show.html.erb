@@ -1,70 +1,46 @@
 <p id="notice"><%= notice %></p>
 
-
 <div class="row">
   <div class="col-md-12">
     <div class="jumbotron">
       <h2><%= @plant.title.upcase %></h2>
       <h4>Planted <%= time_ago_in_words(@plant.created_at) %> ago.</h4>
       <p><%= @plant.notes.upcase %></p>
-      <%= render 'transplant' %>
-      <%= link_to 'Edit', edit_plant_path(@plant), class: "btn btn-raised btn-info hoverable" %>
-      <%= link_to 'BACK', plants_path, class: "btn btn-raised hoverable" %>
+      <div class="btn-group-vertical">
+        <%= link_to 'Edit', edit_plant_path(@plant), class: "btn btn-raised btn-info hoverable" %>
+        <%= link_to 'BACK', plants_path, class: "btn btn-raised hoverable" %>
+      </div>
     </div>
   </div>
 </div>
-
-
 <div class="row">
   <div class="col-md-12">
     <div class="col-md-6">
       <div class="jumbotron">
-        <%= render 'tasks/form' %>
-        <%= render @plant.tasks.reject(&:new_record?) %>
-
-        <% if @plant.plantdats.length == 0  %>
-            <div class="alert alert-dismissible alert-success">
-              <H5>TODO: ADD YOUR DAILIES</H5>
-              <a href="javascript:void(0)" class="alert-link"></a>
-            </div>
-            <%= render 'plantdats/form' %>
-
-        <% else %>
-            <% if @plant.plantdats.last.created_at.day != Date.current.day %>
-                <div class="alert alert-dismissible alert-success">
-                  <H5>TODO: EAT YOUR WHEATIES</H5>
-                  <a href="javascript:void(0)" class="alert-link"></a>
-                </div>
-
-                <%= render 'plantdats/form' %>
-            <% end %>
-
-        <% end %>
+        <p>SCHEDULE</p>
+        <%= render @plant.plant_cycles.reject(&:new_record?)%>
+        <div class="well">
+          <%= render 'plant_cycles/form' %>
+        </div>
 
       </div>
     </div>
     <div class="col-md-6">
       <div class="jumbotron">
-        <p><%= pluralize(@plant.plant_cycles.count, "CYCLE").upcase %></p>
-        <%= render 'plant_cycles/form' %>
-        <%= render @plant.plant_cycles.reject(&:new_record?)  %>
-
-
+        <%= render 'tasks/form' %>
+        <%= render @plant.tasks.reject(&:new_record?) %>
       </div>
-
     </div>
   </div>
 </div>
 <div class="row">
   <div class="col-md-12">
     <div class="jumbotron">
-
       <div class="col-md-2">
         <%= form_for(@plant, html: {class: 'form-horizontal'}) do |f| %>
             <% if @plant.errors.any? %>
                 <div id="error_explanation">
                   <h2><%= pluralize(@plant.errors.count, "error") %> prohibited this grow from being saved:</h2>
-
                   <ul>
                     <% @plant.errors.full_messages.each do |message| %>
                         <li><%= message %></li>
@@ -76,7 +52,6 @@
             <%= f.submit class: 'btn btn-raised hoverable btn-success' %>
         <% end %>
       </div>
-
         <% @plant.images.each do |i| %>
             <%= attachment_image_tag(i, :file, :fill, 150, 150, format: "jpg") %>
         <% end %>

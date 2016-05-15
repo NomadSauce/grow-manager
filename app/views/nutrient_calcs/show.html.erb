@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @nutrient_calc.product %>
+</p>
+
+<p>
+  <strong>Vegtime:</strong>
+  <%= @nutrient_calc.vegtime %>
+</p>
+
+<p>
+  <strong>Flowertime:</strong>
+  <%= @nutrient_calc.flowertime %>
+</p>
+
+<p>
+  <strong>Rezsize:</strong>
+  <%= @nutrient_calc.rezsize %>
+</p>
+
+<p>
+  <strong>Rezunits:</strong>
+  <%= @nutrient_calc.rezunits %>
+</p>
+
+<p>
+  <strong>Aerstone:</strong>
+  <%= @nutrient_calc.aerstone %>
+</p>
+
+<p>
+  <strong>Outputunits:</strong>
+  <%= @nutrient_calc.outputunits %>
+</p>
+
+<p>
+  <strong>Nutrient:</strong>
+  <%= @nutrient_calc.nutrient %>
+</p>
+
+<%= link_to 'Edit', edit_nutrient_calc_path(@nutrient_calc) %> |
+<%= link_to 'Back', nutrient_calcs_path %>

@@ -137,12 +137,10 @@
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.2, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v1.12.1, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="byebug (v8.2.5, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="chronic (v0.10.2, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-rails (v4.1.1, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-script (v2.4.1, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-script-source (v1.10.0, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="concurrent-ruby (v1.0.2, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="connection_pool (v2.2.0, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="debug_inspector (v0.0.2, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="devise (v4.1.0, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="domain_name (v0.5.20160310, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
@@ -151,6 +149,7 @@
     <orderEntry type="library" scope="PROVIDED" name="globalid (v0.3.6, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="http-cookie (v1.0.2, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="i18n (v0.7.0, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ice_cube (v0.14.0, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jbuilder (v2.4.1, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jquery-rails (v4.1.1, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="loofah (v2.0.3, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
@@ -173,16 +172,14 @@
     <orderEntry type="library" scope="PROVIDED" name="railties (v4.2.6, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rake (v11.1.2, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rdoc (v4.2.2, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="recurrence (v1.3.0, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="redis (v3.3.0, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="refile (v0.6.2@e844cc, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="refile-mini_magick (v0.2.0, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="responders (v2.2.0, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rest-client (v1.8.0, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sass (v3.4.22, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sass-rails (v5.0.4, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="schedulable (v0.0.10, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sdoc (v0.4.1, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="sidekiq (v4.1.2, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sinatra (v1.4.7, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="spring (v1.7.1, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets (v3.6.0, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
@@ -198,7 +195,6 @@
     <orderEntry type="library" scope="PROVIDED" name="unf_ext (v0.0.7.2, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="warden (v1.2.6, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="web-console (v2.3.0, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="whenever (v0.9.4, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
   </component>
   <component name="RModuleSettingsStorage">
     <LOAD_PATH number="0" />

@@ -25,11 +25,7 @@ class PlantCyclesController < ApplicationController
   # POST /plant_cycles
   # POST /plant_cycles.json
   def create
-    options = {:every => :day}
-    r = Recurrence.new(options)
     @plant_cycle = @plant.plant_cycles.create(plant_cycle_params)
-
-
     respond_to do |format|
       if @plant_cycle.save
         format.html { redirect_to :back, notice: 'Plant cycle was successfully created.' }
@@ -81,6 +77,6 @@ class PlantCyclesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def plant_cycle_params
-      params.require(:plant_cycle).permit(:title, :interval, :frequency, :plant_id)
+      params.require(:plant_cycle).permit(:title, :interval, :frequency, :plant_id, schedule_attributes: Schedulable::ScheduleSupport.param_names )
     end
 end

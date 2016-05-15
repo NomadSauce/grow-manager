@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  product: MyString
+  vegtime: 1
+  flowertime: 1
+  rezsize: 1.5
+  rezunits: MyString
+  aerstone: false
+  outputunits: MyString
+  nutrient_id: 
+
+two:
+  product: MyString
+  vegtime: 1
+  flowertime: 1
+  rezsize: 1.5
+  rezunits: MyString
+  aerstone: false
+  outputunits: MyString
+  nutrient_id: 

@@ -1,12 +1,10 @@
 
 <div class="row">
   <div class="col-md-12">
+
     <%= form_for([@plant, @plant.tasks.build]) do |f| %>
-
-
       <div class="input-group col-md-12">
-        <%= f.text_field :title, placeholder: 'TASK', class: 'form-control' %>
-        <%= f.date_select :due_date, class: 'form-control' %>
+        <%= f.text_field :title, placeholder: 'NOTE', class: 'form-control' %>
           <%= button_tag(type: 'submit', class: "btn btn-success btn-circle btn-sm") do %>
                 <i class="icon-ok icon-white"></i> ADD
 

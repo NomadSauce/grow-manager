@@ -3,7 +3,9 @@
   <div class="col-md-12">
     <div class="alert alert-dismissible alert-success">
       <strong><%= plant_cycle.title.upcase %></strong>
-
+      <%= distance_of_time_in_words_to_now(plant_cycle.schedule.first) %>
+      <%= plant_cycle.schedule.first.strftime("%d %b.") %>
+      <%= link_to '', plant_plant_cycle_path(@plant, plant_cycle.id), method: :delete, class: 'close glyphicon glyphicon-remove-sign pull-right' %>
       <a href="javascript:void(0)" class="alert-link"></a>
     </div>
   </div>

@@ -2,6 +2,9 @@
 
 Rails.application.routes.draw do
 
+  resources :events
+  resources :nutrient_calcs
+  resources :nutrients
   resources :appointments, :pages, :species, :categories, :grows, :pics
   devise_for :users
 
@@ -28,11 +31,6 @@ Rails.application.routes.draw do
   resources :trays do
     resources :datalogs, :tasks
   end
-
-
-  require 'sidekiq/web'
-  mount Sidekiq::Web => '/sidekiq'
-
 
 
 end

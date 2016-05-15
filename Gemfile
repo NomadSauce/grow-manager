@@ -32,11 +32,8 @@ gem 'refile-mini_magick'
 
 gem 'devise', '~> 4.0', '>= 4.0.1'
 
-gem 'sidekiq', '~> 4.1', '>= 4.1.1'
-gem 'whenever', :require => false
-
-gem 'recurrence'
-
+gem 'ice_cube'
+gem 'schedulable'
 
 
 group :development, :test do

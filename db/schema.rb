@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160511062018) do
+ActiveRecord::Schema.define(version: 20160515052419) do
 
   create_table "appointments", force: :cascade do |t|
     t.string   "task"
@@ -57,6 +57,12 @@ ActiveRecord::Schema.define(version: 20160511062018) do
 
   add_index "datalogs", ["tray_id"], name: "index_datalogs_on_tray_id"
 
+  create_table "events", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "grows", force: :cascade do |t|
     t.string   "title"
     t.text     "notes"
@@ -75,6 +81,30 @@ ActiveRecord::Schema.define(version: 20160511062018) do
   end
 
   add_index "images", ["plant_id"], name: "index_images_on_plant_id"
+
+  create_table "nutrient_calcs", force: :cascade do |t|
+    t.string   "product"
+    t.integer  "vegtime"
+    t.integer  "flowertime"
+    t.float    "rezsize"
+    t.string   "rezunits"
+    t.boolean  "aerstone"
+    t.string   "outputunits"
+    t.integer  "nutrient_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "nutrient_calcs", ["nutrient_id"], name: "index_nutrient_calcs_on_nutrient_id"
+
+  create_table "nutrients", force: :cascade do |t|
+    t.string   "title"
+    t.string   "manufacturer"
+    t.float    "price"
+    t.string   "unit"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "pages", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -130,6 +160,21 @@ ActiveRecord::Schema.define(version: 20160511062018) do
 
   add_index "plants", ["category_id"], name: "index_plants_on_category_id"
   add_index "plants", ["tray_id"], name: "index_plants_on_tray_id"
+
+  create_table "schedules", force: :cascade do |t|
+    t.integer  "schedulable_id"
+    t.string   "schedulable_type"
+    t.date     "date"
+    t.time     "time"
+    t.string   "rule"
+    t.string   "interval"
+    t.text     "day"
+    t.text     "day_of_week"
+    t.datetime "until"
+    t.integer  "count"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "species", force: :cascade do |t|
     t.string   "name"

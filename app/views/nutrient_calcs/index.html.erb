@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Nutrient Calcs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Vegtime</th>
+      <th>Flowertime</th>
+      <th>Rezsize</th>
+      <th>Rezunits</th>
+      <th>Aerstone</th>
+      <th>Outputunits</th>
+      <th>Nutrient</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @nutrient_calcs.each do |nutrient_calc| %>
+      <tr>
+        <td><%= nutrient_calc.product %></td>
+        <td><%= nutrient_calc.vegtime %></td>
+        <td><%= nutrient_calc.flowertime %></td>
+        <td><%= nutrient_calc.rezsize %></td>
+        <td><%= nutrient_calc.rezunits %></td>
+        <td><%= nutrient_calc.aerstone %></td>
+        <td><%= nutrient_calc.outputunits %></td>
+        <td><%= nutrient_calc.nutrient %></td>
+        <td><%= link_to 'Show', nutrient_calc %></td>
+        <td><%= link_to 'Edit', edit_nutrient_calc_path(nutrient_calc) %></td>
+        <td><%= link_to 'Destroy', nutrient_calc, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Nutrient calc', new_nutrient_calc_path %>

@@ -1,0 +1,37 @@
+<div id="wrapper">
+
+  <!-- Sidebar -->
+  <div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <li class="sidebar-brand">
+        <h3><%= controller_name.upcase %></h3>
+      </li>
+      <li class="nav-divider"></li>
+      <li>
+        <%= link_to 'PICTURES', root_path %>
+      </li>
+      <li>
+        <%= link_to 'DATA', root_path %>
+      </li>
+      <li>
+        <%= link_to 'CYCLE', root_path %>
+      </li>
+      <li>
+        <%= link_to 'SETTINGS', root_path %>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<script src="js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+<!-- Menu Toggle Script -->
+<script>
+  $("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
+  });
+</script>

@@ -28,7 +28,7 @@
           <%= f.text_field :species, class: 'form-control', id: 'focusedInput1', placeholder: 'ENTER SPECIES' %>
           <%= f.hidden_field :tray_id, value: params[:tray_id] %>
           <% if params[:tray_id].nil? %>
-              <%= f.collection_select(:tray_id, Tray.all, :id, :title) %></br></br>
+              <%= f.collection_select(:tray_id, current_user.trays, :id, :title) %></br></br>
           <% end %>
           <%= f.submit class: 'btn btn-raised hoverable btn-success' %>
           <%= link_to 'CANCEL', plants_path, class: 'btn btn-raised hoverable btn-info' %>

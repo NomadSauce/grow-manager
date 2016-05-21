@@ -20,7 +20,7 @@ Rails.application.routes.draw do
       root :to => 'trays#index', as: :authenticated_root
     end
     unauthenticated :user do
-      root :to => 'devise/registrations#new', as: :unauthenticated_root
+      root :to => 'devise/sessions#create', as: :unauthenticated_root
     end
   end
 

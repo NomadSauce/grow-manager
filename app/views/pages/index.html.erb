@@ -2,11 +2,36 @@
 
 <h1>MASTER PAGE</h1>
 
-<%= current_user.email %>
+<div class="jumbotron">
+  <% current_user.trays.each do |tray| %>
+      <% tray.tray_cycles.each do |cycle| %>
+          <span class="label label-danger"><%= cycle.title.upcase %> <%= cycle.schedule.first.strftime("%d %b.") %></span>
+      <% end %>
+  <% end %>
+</div>
+
+
 
 <% current_user.trays.each do |tray| %>
-    <ul>
-      <li><%= tray.title %></li>
+    <div class="col-md-4">
+      <div class="jumbotron">
+        <h2><%= tray.title %></h2>
+        <% tray.plants.each do |plant| %>
+            <div class="well">
+              <% tray.plants.each do |plant| %>
+                  <%= plant.title %>
+              <% end %>
+            </div>
+
+        <% end %>
+
+      </div>
+    </div>
+
+
+      <ul>
+
+      </ul>
     </ul>
 
 <% end %>

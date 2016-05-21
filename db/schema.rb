@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160515052419) do
+ActiveRecord::Schema.define(version: 20160515195217) do
 
   create_table "appointments", force: :cascade do |t|
     t.string   "task"
@@ -198,6 +198,15 @@ ActiveRecord::Schema.define(version: 20160515052419) do
   add_index "tasks", ["plant_id"], name: "index_tasks_on_plant_id"
   add_index "tasks", ["tray_id"], name: "index_tasks_on_tray_id"
 
+  create_table "tray_cycles", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "tray_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "tray_cycles", ["tray_id"], name: "index_tray_cycles_on_tray_id"
+
   create_table "trays", force: :cascade do |t|
     t.string   "title"
     t.text     "notes"
@@ -205,6 +214,7 @@ ActiveRecord::Schema.define(version: 20160515052419) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
+    t.integer  "rescap"
   end
 
   add_index "trays", ["category_id"], name: "index_trays_on_category_id"

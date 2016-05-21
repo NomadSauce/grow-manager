@@ -15,11 +15,14 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
-  authenticated :user do
-    root "grows#index", as: "authenticated_root"
+  devise_scope :user do
+    authenticated :user do
+      root :to => 'trays#index', as: :authenticated_root
+    end
+    unauthenticated :user do
+      root :to => 'devise/registrations#new', as: :unauthenticated_root
+    end
   end
-
-  root 'pages#index'
 
   resources :plants do
     member do
@@ -29,8 +32,6 @@ Rails.application.routes.draw do
   end
 
   resources :trays do
-    resources :datalogs, :tasks
+    resources :datalogs, :tasks, :tray_cycles
   end
-
-
 end

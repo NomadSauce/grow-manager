@@ -6,5 +6,6 @@ class User < ActiveRecord::Base
 
   has_many :grows
   has_many :trays
+  has_many :plants
   has_many :images
 end

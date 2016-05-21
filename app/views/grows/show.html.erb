@@ -12,6 +12,41 @@
 
 <div class="row">
   <div class="col-md-12">
+    <% @tray.each where @tray.category_id == @grow do |tray| %>
+        <div class="col-md-3">
+          <div class="card hoverable">
+            <div class="card-height-indicator"></div>
+            <div class="card-content">
+              <div class="card-image" style="background-color: #66bb6a">
+                <%= attachment_image_tag(tray.images.first, :file, :fill, 200, 200) %>
+                <h3 class="card-image-headline">
+                  <%= link_to tray.title.upcase, tray_path(tray.id) %></h3>
+              </div>
+              <div class="card-body">
+                <% tray.tasks.each do |task| %>
+                    <span class="label label-danger"><%= task.title.upcase %></span>
+                    <span class="label label-warning"><%= task.title.upcase %></span>
+                    <span class="label label-primary"><%= task.title.upcase %></span>
+                <% end %>
+                <h4>trayed <%= time_ago_in_words(tray.created_at) %> ago.</h4>
+              </div>
+            </div>
+            <div class="card-footer">
+              <%= link_to 'VIEW', tray_path(tray.id), class: "btn btn-raised btn-success hoverable" %>
+              <%= link_to 'DELETE', tray, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-raised btn-default hoverable" %>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+
+<div class="row">
+  <div class="col-md-12">
     <div class="header">
       <%= link_to 'ADD TRAY', new_tray_path, class: "btn btn-raised btn-success hoverable" %>
       <%= link_to 'EDIT', edit_grow_path(@grow), class: "btn btn-raised btn-info hoverable" %>

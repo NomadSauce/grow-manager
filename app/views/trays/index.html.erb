@@ -7,7 +7,7 @@
       <div class="row">
         <div class="header">
           <%= link_to 'ADD TRAY', new_tray_path, class: "btn btn-raised btn-success hoverable" %>
-          <%= link_to 'BACK', root_path, class: "btn btn-raised btn-default hoverable" %>
+          <%= link_to 'BACK', :back, class: "btn btn-raised btn-default hoverable" %>
         </div>
       </div>
     </div>
@@ -30,24 +30,9 @@
                     <h3 class="card-image-headline"><%= tray.title.upcase %></h3>
                   </div>
                   <div class="card-body">
+                    <% tray.tray_cycles.each do |cycle| %>
 
-
-
-
-                    <% tray.plants.each do |plant| %>
-                        <% plant.tasks.each do |task| %>
-
-                            <% if (task.due_date - Time.now) < 24.hours %>
-                                <span class="label label-danger"><%= task.title.upcase %> <%= plant.title.upcase %></span>
-
-                            <% elsif (task.due_date - Time.now) < 48.hours %>
-                                <span class="label label-warning"><%= task.title.upcase %> <%= plant.title.upcase %></span>
-
-                            <% else %>
-                                <span class="label label-primary"><%= task.title.upcase %> <%= plant.title.upcase %></span>
-
-                            <% end %>
-                        <% end %>
+                        <span class="label label-danger"><%= cycle.title.upcase %> <%= cycle.schedule.first.strftime("%d %b.") %></span>
                     <% end %>
                   </div>
                 </div>

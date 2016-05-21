@@ -68,9 +68,6 @@ class PlantCyclesController < ApplicationController
     def set_plant
       @plant = Plant.find(params[:plant_id])
     end
-
-
-
     def set_plant_cycle
       @plant_cycle = PlantCycle.find(params[:id])
     end

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @tray_cycle.title %>
+</p>
+
+<p>
+  <strong>Tray:</strong>
+  <%= @tray_cycle.tray %>
+</p>
+
+<%= link_to 'Edit', edit_tray_cycle_path(@tray_cycle) %> |
+<%= link_to 'Back', tray_cycles_path %>

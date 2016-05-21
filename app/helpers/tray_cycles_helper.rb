@@ -1,0 +1,2 @@
+module TrayCyclesHelper
+end

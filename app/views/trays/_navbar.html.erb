@@ -1,0 +1,12 @@
+<div class="navbar-default">
+  <div class="container-fluid">
+
+    <div class="navbar-collapse collapse navbar-responsive-collapse">
+      <ul class="nav navbar-nav">
+        <li><%= link_to 'ADD PLANT', new_plant_path(tray_id: @tray.id) %></li>
+        <li><%= link_to 'EDIT', edit_tray_path(@tray) %></li>
+        <li><%= link_to 'BACK', trays_path %></li>
+      </ul>
+    </div>
+  </div>
+</div>

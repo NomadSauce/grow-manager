@@ -2,3 +2,12 @@
 
 <h1>MASTER PAGE</h1>
 
+<%= current_user.email %>
+
+<% current_user.trays.each do |tray| %>
+    <ul>
+      <li><%= tray.title %></li>
+    </ul>
+
+<% end %>
+

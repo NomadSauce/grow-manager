@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160515195217) do
+ActiveRecord::Schema.define(version: 20160521081000) do
 
   create_table "appointments", force: :cascade do |t|
     t.string   "task"
@@ -156,10 +156,12 @@ ActiveRecord::Schema.define(version: 20160515195217) do
     t.string   "species"
     t.integer  "tray_id"
     t.integer  "species_id"
+    t.integer  "user_id"
   end
 
   add_index "plants", ["category_id"], name: "index_plants_on_category_id"
   add_index "plants", ["tray_id"], name: "index_plants_on_tray_id"
+  add_index "plants", ["user_id"], name: "index_plants_on_user_id"
 
   create_table "schedules", force: :cascade do |t|
     t.integer  "schedulable_id"

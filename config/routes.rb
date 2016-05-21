@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     end
   end
 
+
   resources :plants do
     member do
       post 'transplant'

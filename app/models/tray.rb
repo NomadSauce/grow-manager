@@ -4,6 +4,7 @@ class Tray < ActiveRecord::Base
   has_many :tasks, dependent:  :destroy
   has_many :datalogs, dependent:  :destroy
   has_many :tray_cycles
+  belongs_to :user, dependent: :destroy
   accepts_attachments_for :images, attachment: :file, append: true
 
 

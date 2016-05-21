@@ -6,6 +6,7 @@
       <div class="panel panel-success">
         <div class="panel-heading">
           <h2><%= @tray.title.upcase %></h2>
+          <%= render 'trays/navbar' %>
         </div>
         <div class="panel-body">
           <%= render @tray.tray_cycles.reject(&:new_record?)%>
@@ -14,9 +15,7 @@
           </div>
         </div>
 
-        <div class="panel-footer">
-          <%= render 'trays/navbar' %>
-        </div>
+
       </div>
     </div>
 

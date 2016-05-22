@@ -3,6 +3,11 @@
 <h1>MASTER PAGE</h1>
 
 <div class="jumbotron">
+  <%= timeline [
+                   ["Washington", "1789-04-29", "1797-03-03"],
+                   ["Adams", "1797-03-03", "1801-03-03"],
+                   ["Jefferson", "1801-03-03", "1809-03-03"]
+               ] %>
   <% current_user.trays.each do |tray| %>
       <% tray.tray_cycles.each do |cycle| %>
           <span class="label label-danger"><%= cycle.title.upcase %> <%= cycle.schedule.first.strftime("%d %b.") %></span>
@@ -10,6 +15,7 @@
   <% end %>
 </div>
 
+<%= pie_chart({"Football" => 10, "Basketball" => 5}) %>
 
 
 <% current_user.trays.each do |tray| %>

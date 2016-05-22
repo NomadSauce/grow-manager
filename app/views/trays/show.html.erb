@@ -1,5 +1,26 @@
 <p id="notice"><%= notice %></p>
 
+<div class="jumbotron">
+
+  <h1>CHARTS</h1>
+
+  <%= line_chart @tray.datalogs.group(:ambcur), xtitle: "DATE", ytitle: "TEMPERATURE" %>
+
+  <%= line_chart Datalog.group(:ph, :ambcur).group_by_day(:created_at), xtitle: "DATE", ytitle: "TEMPERATURE" %>
+
+  <% if @tray.datalogs.count != 0 %>
+
+      <%= @tray.datalogs.count %>
+      <% @tray.datalogs.each do |log| %>
+
+          <%# log.tray_id %>
+
+      <% end %>
+
+  <% end %>
+</div>
+
+
 <div class="row">
   <div class="col-md-5">
     <div class="jumbotron" align="center">
@@ -14,13 +35,9 @@
             <%= render 'tray_cycles/form' %>
           </div>
         </div>
-
-
       </div>
     </div>
-
   </div>
-
   <div class="col-md-7">
     <div class="jumbotron">
 

@@ -16,3 +16,5 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-material-design
+//= require highcharts
+//= require chartkick

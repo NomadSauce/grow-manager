@@ -2,25 +2,26 @@
 
 <div class="jumbotron">
 
-  <h1>CHARTS</h1>
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      <h2><%= @tray.title.upcase %></h2>
+      <%= render 'trays/navbar' %>
+    </div>
+  </div>
 
-  <%= line_chart @tray.datalogs.group(:ambcur), xtitle: "DATE", ytitle: "TEMPERATURE" %>
+  <%= line_chart [
+                     {name: "Amb Max", data: @tray.datalogs.inject({}) {|res, v| res[v[:created_at]] = v.ambmax; res }},
+                     {name: "Amb Cur", data: @tray.datalogs.inject({}) {|res, v| res[v[:created_at]] = v.ambcur; res }},
+                     {name: "Amb Min", data: @tray.datalogs.inject({}) {|res, v| res[v[:created_at]] = v.ambmin; res }},
+                 ], xtitle: "DATE", ytitle: "TEMPERATURE" %>
 
-  <%= line_chart Datalog.group(:ph, :ambcur).group_by_day(:created_at), xtitle: "DATE", ytitle: "TEMPERATURE" %>
+  <%= line_chart [
+                     {name: "Fol Max", data: @tray.datalogs.inject({}) {|res, v| res[v[:created_at]] = v.folmax; res }},
+                     {name: "Fol Cur", data: @tray.datalogs.inject({}) {|res, v| res[v[:created_at]] = v.folcur; res }},
+                     {name: "Fol Min", data: @tray.datalogs.inject({}) {|res, v| res[v[:created_at]] = v.folmin; res }}
+                 ], xtitle: "DATE", ytitle: "TEMPERATURE" %>
 
-  <% if @tray.datalogs.count != 0 %>
-
-      <%= @tray.datalogs.count %>
-      <% @tray.datalogs.each do |log| %>
-
-          <%# log.tray_id %>
-
-      <% end %>
-
-  <% end %>
 </div>
-
-
 <div class="row">
   <div class="col-md-5">
     <div class="jumbotron" align="center">

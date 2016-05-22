@@ -35,8 +35,7 @@ gem 'ice_cube'
 gem 'schedulable'
 
 gem "chartkick"
-#gem 'dateslices'
-gem 'groupdate'
+
 
 
 group :development, :test do
@@ -49,7 +48,7 @@ group :development do
   gem 'web-console', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-
+  gem 'dateslices'
   gem 'sqlite3'
 end
 
@@ -58,6 +57,7 @@ end
 group :production do
   gem 'pg'
   gem 'rails_12factor'
+  gem 'groupdate'
 end
 
 ruby '2.3.0'

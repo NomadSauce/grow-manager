@@ -142,6 +142,7 @@
     <orderEntry type="library" scope="PROVIDED" name="coffee-script (v2.4.1, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-script-source (v1.10.0, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="concurrent-ruby (v1.0.2, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="dateslices (v0.0.4, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="debug_inspector (v0.0.2, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="devise (v4.1.0, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="domain_name (v0.5.20160310, RVM: ruby-2.3.0 [rails4.2]) [gem]" level="application" />

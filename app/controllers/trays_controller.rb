@@ -66,6 +66,6 @@ class TraysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tray_params
-      params.require(:tray).permit(:title, :notes, :category_id, :user_id, images_files: [])
+      params.require(:tray).permit(:title, :notes, :rescap, :category_id, :user_id, images_files: [] )
     end
 end

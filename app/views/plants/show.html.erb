@@ -1,18 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-
-
-
 <div class="row">
-  <div class="col-md-12">
-    <div class="jumbotron">
-      <h2><%= @plant.title.upcase %></h2>
-      <h4>Planted <%= time_ago_in_words(@plant.created_at) %> ago.</h4>
-      <p><%= @plant.notes.upcase %></p>
-      <div class="btn-group-vertical">
-        <%= link_to 'Edit', edit_plant_path(@plant), class: "btn btn-raised btn-info hoverable" %>
-        <%= link_to 'BACK', plants_path, class: "btn btn-raised hoverable" %>
-      </div>
+  <div class="col-md-6">
+    <div class="panel panel-success">
+      <%= render 'navbar' %> 
+      <ul class="nav nav-pills">
+        <li><a href="javascript:void(0)">PLANTED  <span class="badge"><strong><%= time_ago_in_words(@plant.created_at) %> ago.</strong></span></a></li>
+        <li><a href="javascript:void(0)">TRAY <span class="badge"><strong><%= Tray.find(@plant.tray_id).title.upcase %></strong></span></a></li>
+      </ul>
+      <%= render @plant.plant_cycles.reject(&:new_record?)%>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="well">
+      <%= render 'tasks/form' %>
+      <%= render @plant.tasks.reject(&:new_record?) %>
     </div>
   </div>
 </div>
@@ -20,18 +22,7 @@
   <div class="col-md-12">
     <div class="col-md-6">
       <div class="jumbotron">
-        <p>SCHEDULE</p>
-        <%= render @plant.plant_cycles.reject(&:new_record?)%>
-        <div class="well">
           <%= render 'plant_cycles/form' %>
-        </div>
-
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="jumbotron">
-        <%= render 'tasks/form' %>
-        <%= render @plant.tasks.reject(&:new_record?) %>
       </div>
     </div>
   </div>

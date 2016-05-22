@@ -28,5 +28,15 @@
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
+<script>
+  $(document).ready(function()
+  {
+    //Handles menu drop down
+    $('.dropdown-menu').find('form').click(function (e) {
+      e.stopPropagation();
+    });
+  });
+</script>
+
 </body>
 </html>

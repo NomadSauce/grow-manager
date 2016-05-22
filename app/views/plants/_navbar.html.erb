@@ -1,0 +1,57 @@
+<div class="navbar navbar-info">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="javascript:void(0)"><%= @plant.title.upcase %></a>
+    </div>
+    <div class="navbar-collapse collapse navbar-responsive-collapse">
+      <ul class="nav navbar-nav">
+        <li><%= link_to 'EDIT', edit_plant_path(@plant) %></li>
+        <!-- <li><%# link_to 'BACK', trays_path %></li> -->
+
+        <li class="dropdown">
+          <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">TRANSPLANT
+            <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <%= form_for(@plant, html: {class: 'form-horizontal'}) do |f| %>
+                <% if @plant.errors.any? %>
+                    <div id="error_explanation">
+                      <h2><%= pluralize(@plant.errors.count, "error") %> prohibited this grow from being saved:</h2>
+
+                      <ul>
+                        <% @plant.errors.full_messages.each do |message| %>
+                            <li><%= message %></li>
+                        <% end %>
+                      </ul>
+                    </div>
+                <% end %>
+                <%= f.hidden_field :tray_id, value: params[:tray_id] %>
+                <% if params[:tray_id].nil? %>
+                    <%= f.collection_select(:tray_id, Tray.all, :id, :title) %>
+                <% end %><br>
+                <%= f.submit 'TRANSPLANT PLANT', class: 'btn btn-raised hoverable btn-success' %>
+            <% end %>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">ADD PHOTO
+            <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <%= form_for(@plant) do |f| %>
+                <div class="form-group label-floating">
+                  <%= f.attachment_field :images_files, multiple: true, direct: true, presigned: true %>
+                  <%= f.submit class: 'btn btn-raised hoverable btn-success' %>
+                </div>
+            <% end %>
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</div>

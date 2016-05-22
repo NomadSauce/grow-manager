@@ -2,6 +2,8 @@
 <div class="row">
   <div class="col-md-12">
     <% if (tray_cycle.schedule.first - Time.now) < 24.hours %>
+
+
         <div class="alert alert-dismissible alert-danger">
           <strong><%= tray_cycle.title.upcase %> - TODAY</strong>
           <%= tray_cycle.schedule.first.strftime("%d %b.") %>

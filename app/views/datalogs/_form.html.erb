@@ -1,11 +1,11 @@
 <div class="row">
   <%= form_for([@tray, @tray.datalogs.build]) do |f| %>
-      <div class="col-md-6">
+      <div class="col-md-5">
 
         <table class="table table-striped table-hover ">
           <thead>
           <tr>
-            <th class="success"><p><%= Time.now.strftime("%d %b.") %></p></th>
+            <th class="success"><h3><%= Time.now.strftime("%d %b.").upcase %></h3></th>
             <th>CURRENT</th>
             <th>MIN TEMP</th>
             <th>MAX TEMP</th>
